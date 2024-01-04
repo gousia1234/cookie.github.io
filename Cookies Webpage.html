@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/sgous/OneDrive/Desktop/gaming.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align:center;
+            background-color:gold;
+            position:absolute;
+            width:100%;
+            height:100%;
+
+        }
+        h1{
+          position:relative;
+          top:320px;
+       }
+        
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            top:330px;
+            position:relative;
+        }
+        button:hover{
+            background-color:#756AB6;
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Cookies Webpage!</h1>
+        <button onclick="setCookie()">Set Cookie</button>
+        <button onclick="getCookie()">Get Cookie</button>
+        <button onclick="deleteCookie()">Delete Cookie</button>
+        <p id="cookieValue"></p>
+    </div>
+    <script>
+        function setCookie() {
+            var cookieValue = "Hello, this is a cookie!";
+            document.cookie = "exampleCookie=" + cookieValue + "; expires=Thu, 31 Dec 2025 12:00:00 UTC; path=/";
+            alert("Cookie set successfully!");
+        }
+
+        function getCookie() {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith("exampleCookie=")) {
+                    var cookieValue = cookie.substring("exampleCookie=".length);
+                    document.getElementById("cookieValue").innerHTML = "Cookie Value: " + cookieValue;
+                    return;
+                }
+            }
+            document.getElementById("cookieValue").innerHTML = "Cookie not found.";
+        }
+
+        function deleteCookie() {
+            document.cookie = "exampleCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            alert("Cookie deleted successfully!");
+        }
+    </script>
+<div class="set">
+</div>
+
+
+
+</body></html>
